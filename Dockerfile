@@ -8,17 +8,17 @@ RUN apt-get install openjdk-8-jre -y
 
 RUN echo "JAVA_HOME=/usr/" >> ~/.bashrc
 
-ADD  http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz  /tmp
+ADD  https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.70/bin/apache-tomcat-9.0.70.tar.gz  /tmp
 
-RUN cd /tmp && tar -xvzf apache-tomcat-8.5.37.tar.gz 
+RUN cd /tmp && tar -xvzf apache-tomcat-9.0.70.tar.gz 
 
-RUN cd /tmp && mv apache-tomcat-8.5.37 /opt/
+RUN cd /tmp && mv apache-tomcat-9.0.70 /opt/
 
 EXPOSE 8080
 
-ADD http://mirrors.jenkins.io/war-stable/latest/jenkins.war /opt/apache-tomcat-8.5.37/webapps/
+ADD https://get.jenkins.io/war-stable/2.375.1/jenkins.war /opt/apache-tomcat-9.0.70/webapps/
 
-CMD ["/opt/apache-tomcat-8.5.37/bin/catalina.sh","run"]
+CMD ["/opt/apache-tomcat-9.0.70/bin/catalina.sh","run"]
 
 
 
